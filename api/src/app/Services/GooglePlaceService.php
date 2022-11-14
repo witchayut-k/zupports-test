@@ -10,19 +10,30 @@ class GooglePlaceService
 {
     public function __construct()
     {
-        $apiKey = Config::get("google.api_key");
-        $this->googlePlace = new PlacesApi($apiKey);
+        $this->apiKey = Config::get("google.api_key");
+        $this->googlePlace = new PlacesApi($this->apiKey);
     }
 
-    public function textSearch($term, $types = ['restaurant'])
+    public function textSearch($term)
     {
-        $res = $this->googlePlace->textSearch($term, $types);
+        $searchType = "restaurant"; // 
+
+        $params = ['type' => $searchType];
+
+        $res = $this->googlePlace->textSearch($term, $params);
+
         return $res['results'];
+
     }
 
-    public function getSuggestPlaces($term, $types = ['restaurant'])
+    public function getSuggestPlaces($term)
     {
-        $res = $this->googlePlace->placeAutocomplete($term, ['types'=>'restaurant']);
+
+        $searchType = "restaurant"; // 
+
+        $params = ['types' => $searchType];
+
+        $res = $this->googlePlace->placeAutocomplete($term, $params);
         return $res;
     }
 }
