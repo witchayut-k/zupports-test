@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\GooglePlaceService;
 
-class RestuarantAPIController extends Controller
+class SearchAPIController extends Controller
 {
 
     public function __construct(

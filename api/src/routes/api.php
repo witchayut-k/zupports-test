@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\API\RestuarantAPIController;
+use App\Http\Controllers\API\SearchAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
-Route::group(['prefix' => 'restuarants'], function () {
-    Route::get('', [RestuarantAPIController::class, 'search']);
-    Route::get('suggest', [RestuarantAPIController::class, 'suggest']);
-});
+Route::get('search', [SearchAPIController::class, 'search']);
+Route::get('suggest', [SearchAPIController::class, 'suggest']);
