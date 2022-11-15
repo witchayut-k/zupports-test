@@ -4,7 +4,7 @@
           <h1 class="white--text">Simple Responsive web application</h1>
           <h4 class="white--text">To show the list of Restaurants by using Google Map API</h4>
       </div>
-      <v-container class="container">
+      <v-container>
         <v-row justify="center">
           <form @submit.prevent="handleSubmit" class="text-center">
             <p>Enter the restaurant name</p>
@@ -13,6 +13,7 @@
                 v-model="form.q"
                 placeholder="Eg. Bang sue"
                 solo
+                class="mb-5"
               ></v-text-field>
               <v-btn
                 color="primary"
@@ -45,7 +46,6 @@ export default {
 
   methods: {
     handleSubmit() {
-      console.log('handle submit', this.form.q);
       this.$emit("handleSearch", this.form.q);
     },
   }

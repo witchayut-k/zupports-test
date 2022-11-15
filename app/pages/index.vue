@@ -1,11 +1,8 @@
 <template>
   <div>
 
-  
-
-  <Searcher @handleSearch="handleSearch" />
-
-  <RestaurantCard :restaurants="restaurants"  />
+    <Searcher @handleSearch="handleSearch" />
+    <RestaurantCard :restaurants="restaurants" :nextPageToken="nextPageToken" @handleLoadMore="handleLoadMore"  />
     
   </div>
 </template>
@@ -17,7 +14,9 @@ export default {
   data() {
     return {
       loading: false,
-      restaurants: []
+      restaurants: [],
+      terms: '',
+      nextPageToken: null
     };
   },
 
@@ -28,8 +27,15 @@ export default {
 
   methods: {
     async handleSearch (terms) {
-      let res = await this.$axios.get(`/search?q=${terms}`);
-      this.restaurants = res.data;
+      this.terms = terms;
+      let res = await this.$axios.get(`/search?q=${this.terms}&type=restaurant`);
+      this.restaurants = res.data.results;
+      this.nextPageToken = res.data.next_page_token;
+    },
+    async handleLoadMore () {
+      let res = await this.$axios.get(`/search?q=${this.terms}&type=restaurant&nextPageToken=${this.nextPageToken}`);
+      this.restaurants.push(...res.data.results);
+      this.nextPageToken = res.data.next_page_token;
     }
   }
 
