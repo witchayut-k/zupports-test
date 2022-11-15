@@ -1,0 +1,35 @@
+.search__container {
+  background: url("https://images.unsplash.com/photo-1581349485608-9469926a8e5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80")
+    no-repeat center center / cover;
+  padding: 60px;
+
+  .container {
+    background-color: #f8f7f9;
+    padding: 32px 48px 64px;
+    max-width: 900px;
+    position: relative;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 8px 3px;
+    border-radius: 16px;
+
+    form {
+      min-width: 600px;
+      padding-top: 42px;
+
+      [type="submit"] {
+        position: relative;
+        border: none;
+        user-select: none;
+        height: 56px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        border-radius: 8px;
+        background-color: rgb(83, 146, 249);
+        color: rgb(255, 255, 255);
+        box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 1px;
+        transition: all 0.15s ease-in-out 0s;
+        width: 300px;
+
+      }
+    }
+  }
+}
