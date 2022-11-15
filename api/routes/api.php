@@ -16,9 +16,5 @@ use App\Http\Controllers\API\SearchAPIController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('search', [SearchAPIController::class, 'search']);
-Route::get('suggest', [SearchAPIController::class, 'suggest']);
+Route::get('search', [SearchAPIController::class, 'search'])->middleware('cacheResponse:900');
+Route::get('suggest', [SearchAPIController::class, 'suggest'])->middleware('cacheResponse:900');

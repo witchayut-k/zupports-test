@@ -11,11 +11,10 @@
         "php": "^7.3",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.5",
-        "kevinrob/guzzle-cache-middleware": "^4.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "skagarwal/google-places-api": "^2.0"
+        "skagarwal/google-places-api": "^2.0",
+        "spatie/laravel-responsecache": "^6.6"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
